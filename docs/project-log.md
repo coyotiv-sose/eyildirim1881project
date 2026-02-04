@@ -21,3 +21,13 @@
 - Hata: -
 - Çözüm: -
 - Sonuç: Öğrenci test çözüyor → sonuç ekranı → konu bazlı analiz + öneri akışı otomatik çalışıyor.
+
+## 2026-02-04
+- Karar: AuthService olmayacak. User modeli sade olacak: tek User class + role (student/teacher).
+- Gerekçe: MVP’de giriş sürtünmesini artırmamak ve domain’i kurs açısından düzenli tutmak.
+- Sonuç: Student/Teacher ayrı class yapılmadı; ClassRoom ve Enrollment domain’de tutulacak.
+
+## 2026-02-04
+- İstek: Domain class’ları oluşturuluyor (kurs tekniği: domain/service ayrımı).
+- Yapılanlar: src/domain/Attempt.js ve src/domain/AttemptResult.js eklendi.
+- Sonuç: Test çözme denemesi (Attempt) ve değerlendirme çıktısı (AttemptResult) için net modeller oluşturuldu.
