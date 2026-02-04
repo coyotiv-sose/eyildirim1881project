@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  h1= title
+
+  if empty
+    p Henüz sonuç yok.
+    a(href="/tests/math-test-001") Teste git
+  else
+    p
+      b Test:
+      |  #{testTitle}
+
+    p
+      b Doğru:
+      |  #{correctCount}
+      |  &nbsp; | &nbsp;
+      b Yanlış:
+      |  #{wrongCount}
+      |  &nbsp; | &nbsp;
+      b Boş:
+      |  #{blankCount}
+
+    br
+    a(href="/analysis") Konu Bazlı Analizi Gör
+    br
+    a(href="/tests/math-test-001") Testi yeniden çöz

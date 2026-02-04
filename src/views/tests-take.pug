@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1= title
+  p #{testTitle}
+
+  form(method="POST", action=`/tests/${testId}/submit`)
+    each q in questions
+      div(style="margin: 12px 0; padding: 10px; border: 1px solid #ddd; border-radius: 8px;")
+        b #{q.text}
+        div(style="margin-top:8px;")
+          each opt in q.options
+            label(style="margin-right:14px;")
+              input(type="radio", name=`q${q.id}`, value=opt, required=true)
+              |  #{opt}
+
+    br
+    button(type="submit") Testi Gönder

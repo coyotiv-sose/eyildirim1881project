@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  h1= title
+
+  form(method="POST", action="/tests")
+    div
+      label(for="subject") Ders
+      input#subject(type="text", name="subject", placeholder="Matematik")
+
+    hr
+
+    h3 Konular (MVP: 3 tane)
+    each i in [1,2,3]
+      div(style="margin-bottom:12px;")
+        label Konu #{i}
+        input(type="text", name=`topic${i}`, placeholder="Örn: Fonksiyonlar")
+        br
+        label Doğru
+        input(type="number", name=`correct${i}`, min="0", value="0")
+        label(style="margin-left:8px;") Yanlış
+        input(type="number", name=`wrong${i}`, min="0", value="0")
+
+    br
+    button(type="submit") Kaydet ve Analizi Gör

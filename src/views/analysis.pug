@@ -1,0 +1,47 @@
+extends layout
+
+block content
+  h1= title
+
+  if empty
+    p Henüz bir test sonucu girilmedi.
+    a(href="/tests/new") Test sonucu gir
+  else
+    p
+      b Ders:
+      |  #{subject}
+
+    h2 Zayıf
+    if weak.length === 0
+      p Zayıf konu yok.
+    else
+      ul
+        each t in weak
+          li #{t.name} (Doğru: #{t.correct}, Yanlış: #{t.wrong}, Skor: #{t.score})
+
+    h2 Orta
+    if medium.length === 0
+      p Orta seviye konu yok.
+    else
+      ul
+        each t in medium
+          li #{t.name} (Skor: #{t.score})
+
+    h2 İyi
+    if good.length === 0
+      p İyi konu yok.
+    else
+      ul
+        each t in good
+          li #{t.name} (Skor: #{t.score})
+
+    h2 Önerilen Sonraki Testler
+    if recommendations.length === 0
+      p Öneri yok (zayıf konu çıkmadı).
+    else
+      ol
+        each r in recommendations
+          li= r
+
+    br
+    a(href="/tests/new") Yeni test sonucu gir
